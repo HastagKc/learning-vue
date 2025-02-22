@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Directives in Vue</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>Two Way binding using v-model</h2>
+      <p>Full Name: {{ fullName() }}</p>
+      <hr />
+      <label for="firstName">Enter Your First Name:</label>
+      <input type="text" v-model="firstName" />
+      <br />
+      <label for="lastName">Enter Your Last Name:</label>
+      <input type="text" v-model="lastName" />
+    </div>
+
+    <!-- Load Vue first -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Then load your script as a non-module -->
+    <script>
+      // don't user Es module to import vue in CDN'
+      // import { createApp } from 'vue'
+      const app = Vue.createApp({
+        data() {
+          return {
+            firstName: 'Harry',
+            lastName: 'Potter',
+          }
+        },
+        methods: {
+          fullName() {
+            return `${this.firstName} ${this.lastName}`
+          },
+        },
+      })
+      app.mount('#app')
+    </script>
+  </body>
+</html>
