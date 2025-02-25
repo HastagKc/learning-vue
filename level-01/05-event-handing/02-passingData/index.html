@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Passing Data from inline Handler</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>Passing data using inline handler</h2>
+
+      <p>My name is {{name}}</p>
+
+      <input type="text" v-model="name" />
+      <button @click="sayHello(name)">Say Hi</button>
+    </div>
+
+    <!-- Load Vue first -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Then load your script as a non-module -->
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            name: '',
+          }
+        },
+        methods: {
+          sayHello(name) {
+            alert(`hello from ${name}`)
+          },
+        },
+      })
+
+      app.mount('#app')
+    </script>
+  </body>
+</html>

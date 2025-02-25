@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Handling in Vue</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{ counter }}</p>
+
+      <!-- treated as method handlers  -->
+      <button v-on:click="increment">Increment</button>
+      <button @click="decrement" :disabled="counter === 0">Decrement</button>
+
+      <!-- inline handlers -->
+      <!-- <button v-on:click="hello()">Say Hello</button> -->
+
+      <!-- using arrow function  -->
+      <button v-on:click="hello()">Say Hello</button>
+    </div>
+
+    <!-- Load Vue first -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Then load your script as a non-module -->
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            counter: 0,
+          }
+        },
+        methods: {
+          increment() {
+            this.counter++
+          },
+
+          decrement() {
+            this.counter--
+          },
+
+          hello() {
+            alert('Hello from vue')
+          },
+        },
+      })
+
+      app.mount('#app')
+    </script>
+  </body>
+</html>
