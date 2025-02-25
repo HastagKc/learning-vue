@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="" rel="stylesheet" />
     <title>Event Modifiers</title>
   </head>
   <body>
-    <h1></h1>
+    <div id="app">
+      <h2>Event Modifiers</h2>
+    </div>
+
+    <!-- Load Vue first -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Then load your script as a non-module -->
+    <script>
+      const app = Vue.createApp({})
+
+      app.mount('#app')
+    </script>
   </body>
 </html>
