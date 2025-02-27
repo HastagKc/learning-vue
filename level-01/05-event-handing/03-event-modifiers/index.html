@@ -8,6 +8,10 @@
   <body>
     <div id="app">
       <h2>Event Modifiers</h2>
+
+      <p>{{ name }}</p>
+      <input type="text" v-model="newName" />
+      <button @click.prevent="updateName">Update Name</button>
     </div>
 
     <!-- Load Vue first -->
@@ -15,9 +19,23 @@
 
     <!-- Then load your script as a non-module -->
     <script>
-      const app = Vue.createApp({})
+      const app = Vue.createApp({
+        data() {
+          return {
+            name: "Jhon",
+            newName: "",
+          };
+        },
 
-      app.mount('#app')
+        methods: {
+          updateName() {
+            this.name = this.newName;
+            this.newName = "";
+          },
+        },
+      });
+
+      app.mount("#app");
     </script>
   </body>
 </html>

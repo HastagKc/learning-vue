@@ -36,11 +36,11 @@ Vue uses the `v-model` directive to implement two-way binding. This is most comm
   const app = Vue.createApp({
     data() {
       return {
-        message: '',
-      }
+        message: "",
+      };
     },
-  })
-  app.mount('#app')
+  });
+  app.mount("#app");
 </script>
 ```
 
@@ -67,17 +67,17 @@ Vue uses the `v-model` directive to implement two-way binding. This is most comm
   const app = Vue.createApp({
     data() {
       return {
-        firstName: '',
-        lastName: '',
-      }
+        firstName: "",
+        lastName: "",
+      };
     },
     methods: {
       fullName() {
-        return `${this.firstName} ${this.lastName}`
+        return `${this.firstName} ${this.lastName}`;
       },
     },
-  })
-  app.mount('#app')
+  });
+  app.mount("#app");
 </script>
 ```
 

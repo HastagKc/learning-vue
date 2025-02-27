@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Modifiers (Prevent)</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{name}}</p>
+
+      <!-- option1 -->
+      <!-- 
+      The first option is generally considered better practice when working with forms as it properly captures the form submission event (which can be triggered by pressing Enter in any form field, not just by clicking the submit button).
+        -->
+      <form @submit.prevent="handleSubmit">
+        <input type="text" v-model="name" />
+        <button type="submit">Submit</button>
+      </form>
+
+      <!-- option-2  -->
+      <!-- <form>
+        <input type="text" v-model="name" />
+        <button type="submit" @click.prevent="handleSubmit">Submit</button>
+      </form> -->
+    </div>
+
+    <!-- Load Vue first -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Then load your script as a non-module -->
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            name: "Initial Name",
+          };
+        },
+        methods: {
+          handleSubmit() {
+            alert("Form submitted!");
+          },
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
