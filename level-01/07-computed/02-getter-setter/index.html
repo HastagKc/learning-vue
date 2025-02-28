@@ -3,20 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>V-model Modifiers</title>
+    <title>Getter and Setter</title>
   </head>
   <body>
     <div id="app">
-      <p>{{firstName}} {{lastName}}</p>
-
-      <!-- using lazy modifiers in the input  -->
-
-      <!--
-      .lazy
-      Updates the state only after the user leaves the input field (on change event instead of input).
-          Useful for improving performance when dealing with large forms.
-          -->
-      <input type="text" v-model.lazy.trim="firstName" />
+      <p>{{fullName}}</p>
     </div>
     <!-- adding vue cdn -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -25,9 +16,24 @@
       const app = Vue.createApp({
         data() {
           return {
-            firstName: 'Kshittiz',
+            firstName: 'kshittiz',
             lastName: 'Chaudhary',
           }
+        },
+
+        computed: {
+          fullName: {
+            // getter
+            get() {
+              return this.firstName + ' ' + this.lastName
+            },
+            // setter
+            set(newName) {
+              const names = newName.split(' ')
+              this.firstName = names[0]
+              this.lastName = names[names.length - 1]
+            },
+          },
         },
       })
 

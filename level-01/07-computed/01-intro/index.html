@@ -7,17 +7,12 @@
   </head>
   <body>
     <div id="app">
-      <p>{{firstName}} {{lastName}}</p>
+      <p>Original msg:{{message}}</p>
+      <p>Reserved msg: {{ reversedMessage }}</p>
 
-      <!-- using lazy modifiers in the input  -->
-
-      <!--
-      .lazy
-      Updates the state only after the user leaves the input field (on change event instead of input).
-          Useful for improving performance when dealing with large forms.
-          -->
-      <input type="text" v-model.lazy.trim="firstName" />
+      <input type="text" v-model="message" />
     </div>
+
     <!-- adding vue cdn -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
@@ -25,9 +20,15 @@
       const app = Vue.createApp({
         data() {
           return {
-            firstName: 'Kshittiz',
-            lastName: 'Chaudhary',
+            message: '',
           }
+        },
+        // computed
+        //
+        computed: {
+          reversedMessage() {
+            return this.message.split('').reverse().join('')
+          },
         },
       })
 
