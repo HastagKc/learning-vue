@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Html Class Binding</title>
+
+    <style>
+      .circle {
+        background-color: green;
+        color: black;
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .active {
+        background-color: red;
+        color: white;
+      }
+      .text-size {
+        font-size: 25px;
+        font-weight: 900;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 1. Binding single css class in html elements -->
+      <!-- <input type="checkbox" name="class-radio" id="" v-model="isActive" />
+      <label for="class-radio">Change Class</label> -->
+
+      <!--
+      <div class="circle" :class="{active:isActive}">
+        <h2>Circle</h2>
+      </div>
+      -->
+
+      <!-- 2. Binding Multiple Css Classes   -->
+
+      <input type="checkbox" name="class-radio" id="" v-model="isActive" />
+      <label for="class-radio">Change Class</label>
+      <input type="checkbox" name="class-radio" id="" v-model="fontBold" />
+      <label for="class-radio">Change Font</label>
+
+      <div class="circle" :class="{active:isActive, 'text-size':fontBold}">
+        <h2>Circle</h2>
+      </div>
+    </div>
+
+    <!-- adding vue cdn -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            isActive: false,
+            fontBold: false,
+          }
+        },
+      })
+
+      app.mount('#app')
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js Class Binding - Array Syntax</title>
+
+    <style>
+      .circle {
+        background-color: green;
+        color: black;
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease; /* Smooth transition */
+      }
+      .active {
+        background-color: red;
+        color: white;
+      }
+      .text-size {
+        font-size: 25px;
+        font-weight: 900;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Toggle Active Class -->
+      <input type="checkbox" id="active-checkbox" v-model="isActive" />
+      <label for="active-checkbox">Toggle Active Class</label>
+
+      <!-- Toggle Text Size Class -->
+      <input type="checkbox" id="font-checkbox" v-model="fontBold" />
+      <label for="font-checkbox">Toggle Text Size</label>
+
+      <!-- Dynamic Class Binding with Array Syntax -->
+      <div class="circle" :class="[isActive ? 'active' : '', fontBold ? 'text-size' : '']">
+        <h2>Circle</h2>
+      </div>
+    </div>
+
+    <!-- Adding Vue CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            isActive: false, // Controls the 'active' class
+            fontBold: false, // Controls the 'text-size' class
+          }
+        },
+      })
+
+      app.mount('#app')
+    </script>
+  </body>
+</html>

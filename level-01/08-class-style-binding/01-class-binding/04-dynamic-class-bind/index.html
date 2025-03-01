@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Class Binding with Computed Properties</title>
+
+    <style>
+      .notification {
+        padding: 20px;
+        border-radius: 5px;
+        margin: 10px;
+        width: 300px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+      .success {
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        color: #155724;
+      }
+      .error {
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        color: #721c24;
+      }
+      .warning {
+        background-color: #fff3cd;
+        border: 1px solid #ffeeba;
+        color: #856404;
+      }
+      .large {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Notification Message -->
+      <div class="notification" :class="notificationClasses">
+        <p>{{ message }}</p>
+      </div>
+
+      <!-- Controls -->
+      <div>
+        <label> <input type="radio" v-model="type" value="success" /> Success </label>
+        <label> <input type="radio" v-model="type" value="error" /> Error </label>
+        <label> <input type="radio" v-model="type" value="warning" /> Warning </label>
+        <label> <input type="checkbox" v-model="isLarge" /> Large Text </label>
+      </div>
+    </div>
+
+    <!-- Adding Vue CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            type: 'success', // Can be 'success', 'error', or 'warning'
+            isLarge: false, // Controls the 'large' class
+          }
+        },
+        computed: {
+          // Computed property to generate class object
+          notificationClasses() {
+            return {
+              success: this.type === 'success',
+              error: this.type === 'error',
+              warning: this.type === 'warning',
+              large: this.isLarge,
+            }
+          },
+          // Computed property to generate message text
+          message() {
+            return `This is a ${this.type} notification${this.isLarge ? ' with large text' : ''}.`
+          },
+        },
+      })
+
+      app.mount('#app')
+    </script>
+  </body>
+</html>
