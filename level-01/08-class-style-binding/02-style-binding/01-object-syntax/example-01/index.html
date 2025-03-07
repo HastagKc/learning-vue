@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binding inline Style</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- camelCase -->
+      <!--
+      <div v-bind:style="{color:textColor, fontSize:fontSize+'px', fontWeight:textWeight}">
+        Binding inline css using camelCase
+      </div>
+      -->
+
+      <!-- kebab-case -->
+      <!-- <div v-bind:style="{color:textColor, 'font-size':fontSize+'px', 'font-weight':textWeight}">
+        Binding inline css using kebab-case
+      </div> -->
+
+      <!-- directly bind to object -->
+      <div :style="textStyleObj">Binding inline css using kebab-case</div>
+    </div>
+
+    <!-- Vue cdn links -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      // const app = Vue.createApp({
+      //   data() {
+      //     return {
+      //       textColor: 'blue',
+      //       fontSize: 32,
+      //       textWeight: 900,
+      //     }
+      //   },
+      // })
+
+      // 2nd method
+      const app = Vue.createApp({
+        data() {
+          return {
+            textStyleObj: {
+              // when using this the properties should be actual css properties
+              color: 'red',
+              fontSize: '32px',
+              textWeight: 900,
+            },
+          }
+        },
+      })
+
+      app.mount('#app')
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binding inline Style</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- directly bind to object -->
+      <div :style="textStyleObj">Binding Inline Styling</div>
+    </div>
+
+    <!-- Vue cdn links -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            textStyleObj: {
+              //In Vue.js, when binding styles directly to an object, the property names must match the camelCase or kebab-case syntax used in CSS.
+              // For example:
+              // textColor should be color.
+              // textWeight should be fontWeight.
+
+              color: 'red',
+              fontSize: '32px',
+              textWeight: 900,
+            },
+          }
+        },
+      })
+
+      app.mount('#app')
+    </script>
+  </body>
+</html>
