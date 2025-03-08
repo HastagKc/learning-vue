@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>V-if with template</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2 v-if="mode==1">Show when mode is 1</h2>
+
+      <!-- solution use template, it will not break structure of documentation -->
+      <template v-else-if="mode==2">
+        <h2>Show when mode is 2</h2>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nulla
+          praesentium, eveniet aut autem reprehenderit beatae debitis possimus
+          aperiam atque similique, illo nihil facere repellat quo? Dignissimos
+          facilis reiciendis perspiciatis.
+        </p>
+      </template>
+      <h2 v-else>Nothing will happen (e-else)</h2>
+
+      <select v-model="mode">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="">None</option>
+      </select>
+    </div>
+
+    <!-- Vue 3 CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            mode: "",
+          };
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
