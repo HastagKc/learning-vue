@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nested Array List</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="(category, index) in birds" :key="index">
+          <strong>{{ category.type }}</strong>
+          <ul>
+            <li v-for="(bird, i) in category.list" :key="i">{{ bird }}</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            birds: [
+              {
+                type: "Flying Birds",
+                list: ["Parrot", "Eagle", "Sparrow"],
+              },
+              {
+                type: "Water Birds",
+                list: ["Duck", "Swan", "Kingfisher"],
+              },
+              {
+                type: "Night Birds",
+                list: ["Owl", "Bat", "Nightjar"],
+              },
+            ],
+          };
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>

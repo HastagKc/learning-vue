@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List with an array</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <!-- <li v-for="bird in birds">{{bird}}</li> -->
+
+        <!-- using index to track the index of the bird -->
+        <li v-for="(bird, index) in birds">index:{{index}} - {{bird}}</li>
+      </ul>
+    </div>
+
+    <!-- vue -3 cdn  -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            birds: [
+              "Parrots",
+              "Robin",
+              "Sparrow",
+              "Eagle",
+              "Hawk",
+              "Pigeon",
+              "Crow",
+              "Blue Jay",
+              "Cardinal",
+              "Finch",
+            ],
+          };
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
