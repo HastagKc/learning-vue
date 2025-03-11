@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rendering with Template</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="blogPost">
+        <template v-for="(blog, key, index) of blogs " :key="blog.id">
+          <h4>id:{{blog.id}}</h4>
+          <p>Name:{{blog.name}}</p>
+          <p>Message:{{blog.message}}</p>
+        </template>
+      </div>
+    </div>
+
+    <!-- vue cdn -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            blogs: [
+              { id: 1, name: "Jhon", message: "hello, what up" },
+              { id: 2, name: "Harry", message: "Nice" },
+              { id: 3, name: "Mike", message: "Time to restart" },
+            ],
+          };
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
