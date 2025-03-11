@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rendering with Template</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <template v-for="item in items">
+          <li>{{item.name}}</li>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+            fuga dignissimos perspiciatis? Iste mollitia corporis quod
+            laudantium expedita nisi praesentium enim consectetur, nihil
+            exercitationem atque architecto quam quibusdam. Dolor, odio.
+          </p>
+          <hr />
+        </template>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            items: [
+              { id: 1, name: "Item 1" },
+              { id: 2, name: "Item 2" },
+              { id: 3, name: "Item 3" },
+            ],
+          };
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>

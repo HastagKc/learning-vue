@@ -8,11 +8,10 @@
   <body>
     <div id="app">
       <ul>
-        <li v-for="({ type, list }, index) in birds" :key="index">
-          <strong>{{ type }}</strong>
-          <ul>
-            <li v-for="(bird, i) in list" :key="i">{{ bird }}</li>
-          </ul>
+        <li v-for="(value,key, index) in books" :key="key">
+          <strong>Title: {{value.title}}</strong>
+          <p>Author: {{value.author}}</p>
+          <p>publishedAt: {{value.publishedAt}}</p>
         </li>
       </ul>
     </div>
@@ -23,18 +22,31 @@
       const app = Vue.createApp({
         data() {
           return {
-            birds: [
+            books: [
               {
-                type: "Flying Birds",
-                list: ["Parrot", "Eagle", "Sparrow"],
+                title: "Getting Started with Vue 3",
+                author: "John Smith",
+                publishedAt: "2024-12-15",
               },
               {
-                type: "Water Birds",
-                list: ["Duck", "Swan", "Kingfisher"],
+                title: "Mastering Pinia State Management",
+                author: "Emily Johnson",
+                publishedAt: "2025-01-20",
               },
               {
-                type: "Night Birds",
-                list: ["Owl", "Bat", "Nightjar"],
+                title: "Vue and Tailwind CSS Integration",
+                author: "Michael Brown",
+                publishedAt: "2025-02-10",
+              },
+              {
+                title: "Vue Router Navigation Guide",
+                author: "Sophia Davis",
+                publishedAt: "2025-03-01",
+              },
+              {
+                title: "Build a Task Manager with Vue and Django",
+                author: "KC",
+                publishedAt: "2025-03-08",
               },
             ],
           };
